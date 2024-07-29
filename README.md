@@ -1,7 +1,8 @@
 # Code_RLSS
 This is the repo that holds the code that supports the finding of our RL SS project
 
-There are three py files here
+There are three py files here:
+
 (1) utils: This file provides basic parameters and functions needed for the simulation of the model
 
 (2) Basic_Model: This file runs the models based on the params set in utils
