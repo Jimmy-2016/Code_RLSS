@@ -3,7 +3,7 @@ from utils import *
 
 
 '''
-This file runs the models based on the params set in utils
+This file plots the results of the simulations
 it read the saved data in SavedData folder that has been created by Basic_Model file
 '''
 
