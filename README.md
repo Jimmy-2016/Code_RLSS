@@ -60,7 +60,11 @@ write their `.pkl` files there.
    python Plot_Basic_Model.py   # reads SavedData/ModelSim.pkl
    ```
 
-The same saved file reproduces the figures shown in the manuscript.
+The same saved file reproduces the figures shown in the manuscript, e.g. the **learned
+Q-table** — the converged value of each action (Left / Right / Wait) across the
+accumulated-evidence states:
+
+![Learned Q-table](fig_qtable.png)
 
 ---
 
@@ -71,7 +75,7 @@ the prerequisite for interpreting `r_wait` (cost of waiting) as a per-subject ma
 
 - **Fitted:** `K` (drift scaling), `lr` (learning rate), `r_wait` (cost of waiting).
 - **Fixed:** `σ` (diffusion noise — standard DDM scaling convention) and `β` (softmax
-  temperature — behaviour saturates above β≈10, so it is structurally unidentifiable).
+  temperature — behaviour saturates above β≈10, so it is structurally unidentifiable for this task).
 - **Optimizer:** CMA-ES by default (`METHOD = "cma"`; robust to noisy behavioural
   objectives). Alternatives: `"anneal"` (`scipy.dual_annealing`, no extra deps) and `"gp"`
   (`scikit-optimize`). Set `METHOD` at the top of `SimpleRecovery.py`.
@@ -82,14 +86,15 @@ python PlotRecovery.py cma      # scatter + correlation matrix; prints Pearson r
 ```
 
 `PlotRecovery.py` takes the method as an argument (`cma` | `anneal` | `gp`, default `cma`)
-and reads `SavedData/Recovery_<method>.pkl`.
-
-> **Note:** the shipped `Recovery_cma.pkl` currently lives in the repo **root**; move it
-> into `SavedData/` before running `PlotRecovery.py`, or it will not be found.
+and reads `SavedData/Recovery_<method>.pkl`. The shipped `Recovery_cma.pkl` is already in
+`SavedData/`, so `python PlotRecovery.py cma` works out of the box.
 
 Latest results (CMA-ES, N = 30): `K` r = 0.68, `lr` r = 0.68, `r_wait` r = 0.78, with all
-cross-correlations small (|r| ≤ 0.35) — no parameter trade-off. Figures: `fig_0.png`
-(recovered vs. true), `fig_1.png` (correlation matrix).
+cross-correlations small (|r| ≤ 0.35) — no parameter trade-off.
+
+**Recovered vs. true** (identity line + Pearson *r*):
+
+![Recovered vs. true parameters](fig_0.png)
 
 ---
 
