@@ -87,6 +87,7 @@ and reads `SavedData/Recovery_<method>.pkl`. The shipped `Recovery_cma.pkl` is a
 
 Latest results (CMA-ES, N = 30): `K` r = 0.68, `lr` r = 0.68, `r_wait` r = 0.78, with all
 cross-correlations small (|r| ≤ 0.35) — no parameter trade-off.
+You may get higher correlations with more runs.
 
 **Recovered vs. true** (identity line + Pearson *r*):
 
