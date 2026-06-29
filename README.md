@@ -60,11 +60,7 @@ write their `.pkl` files there.
    python Plot_Basic_Model.py   # reads SavedData/ModelSim.pkl
    ```
 
-The same saved file reproduces the figures shown in the manuscript, e.g. the **learned
-Q-table** — the converged value of each action (Left / Right / Wait) across the
-accumulated-evidence states:
-
-![Learned Q-table](fig_qtable.png)
+The same saved file reproduces the figures shown in the manuscript.
 
 ---
 
