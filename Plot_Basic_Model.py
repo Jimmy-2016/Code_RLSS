@@ -1,11 +1,26 @@
+"""
+Plot_Basic_Model.py — figures for the RL-DDM simulation.
+
+Reads SavedData/ModelSim.pkl (produced by Basic_Model.py) and reproduces the main
+figures of the manuscript. Using the saved Q-tables and boundary states it draws:
+
+  1. the learned Q-table (Left / Right / Wait values across the state space),
+  2. the Q-table at several time points during training (how the policy forms),
+  3. the chronometric function (RT vs. coherence) with the analytic DDM prediction,
+  4. how the decision threshold (terminal state) evolves over training,
+  5. the psychometric function (accuracy vs. coherence) with the analytic prediction,
+  6. example single-trial evidence-accumulation trajectories,
+  7. the distribution of decision thresholds across training quartiles.
+
+The analytic overlays use the closed-form sequential-sampling expressions for RT and
+accuracy as a sanity check against the learned behaviour.
+
+Input : SavedData/ModelSim.pkl   (run Basic_Model.py first).
+Run   : python Plot_Basic_Model.py
+Note  : depends on seaborn (sns.distplot); ends in plt.show().
+"""
 
 from utils import *
-
-
-'''
-This file plots the results of the simulations
-it read the saved data in SavedData folder that has been created by Basic_Model file
-'''
 
 
 with open('./SavedData/ModelSim.pkl', 'rb') as f:

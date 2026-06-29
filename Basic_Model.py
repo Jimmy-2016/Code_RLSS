@@ -1,11 +1,27 @@
+"""
+Basic_Model.py — run the RL-DDM simulation.
+
+This is the simulation engine for the RL-DDM (reinforcement-learning drift-diffusion
+model). It trains the agent on the trial sequence and parameters defined in utils.py:
+on every trial the agent accumulates noisy evidence step by step (the "wait" action),
+updates its Q-table via temporal-difference learning, and eventually commits to a
+left/right choice. The decision threshold therefore emerges from learning rather than
+being imposed.
+
+What it does:
+  - repeats the whole training run NumIter times (independent agents),
+  - records, for every iteration, the full Q-table over training (AllQ) and the
+    terminal/boundary state reached on each trial (AllBound).
+
+Inputs : all model parameters and the trial sequence come from utils.py.
+Output : SavedData/ModelSim.pkl   ->  pickle of [AllBound, AllQ].
+
+A directory named SavedData/ must exist in the repo root before running.
+Run:  python Basic_Model.py
+Then: python Plot_Basic_Model.py   (reads ModelSim.pkl and reproduces the figures).
+"""
 
 from utils import *
-
-
-'''
-This file runs the models based on the params set in utils
-it saved the simulation in SavedData folder in the root directory
-'''
 
 
 
